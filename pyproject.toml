@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "endurance-metrics"
+version = "0.1.0"
+description = "Training metrics for endurance sports: CTL/ATL/TSB, ACWR, decoupling, and more"
+authors = ["Stephane Jouve <stephanejouve@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/stephanejouve/endurance-metrics"
+repository = "https://github.com/stephanejouve/endurance-metrics"
+keywords = ["cycling", "running", "training", "metrics", "ctl", "atl", "tsb", "acwr", "decoupling"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+]
+packages = [{include = "endurance_metrics", from = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<4.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7.0"
+pytest-cov = ">=4.0"
+black = ">=24.0"
+ruff = ">=0.4"
+isort = ">=5.12"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
